@@ -1,2 +1,12 @@
 # REST-API-PUBLIC-FETCH
-INFO U762 Module 4, Assignment 1: a RESTful Flask app that talks to an external API with async fetch, pulling NHTSA vehicle variable data and filtering it to the Active Safety System group.
+
+INFO U762 Interoperability · Module 4, Assignment 1 · Llewellyn VanDelinder
+
+## What this app does
+
+## How to run it
+
+## How it works
+
+## Reflection
+See [REFLECTION.md](REFLECTION.md).
