@@ -16,24 +16,21 @@ app = Flask(__name__)
 def get_items():
     """
 
-            Calls an external REST API (e.g., https://data.cms.gov/data-api/v1/dataset/7171ef6c-a2cf-43d4-b8ab-774b0de9b90a/data)
-    Check https://data.cms.gov/api-docs for an updated url link if this one fails.
-        and returns the JSON array to the client. The function demonstrates:
-          • Making a GET request with `requests`.
-          • Parsing JSON.
-          • Basic error handling.
+      Calls an external REST API
+    • Making a GET request with `requests`.
+    • Parsing JSON.
+    • Basic error handling.
     """
-    url = "https://data.cms.gov/data-api/v1/dataset/2457ea29-fc82-48b0-86ec-3b0755de7515/data"
+    url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleVariableList?format=json"
     try:
         resp = requests.get(url, timeout=5)  # 5‑second timeout
         resp.raise_for_status()  # raise for HTTP errors
         data = resp.json()  # parse JSON into Python list/dict
 
-        # Example: filter only posts with PROVIDER_TYPE_DESC == "PRACTITIONER - INTERNAL MEDICINE"
         filtered = [
             item
-            for item in data
-            if item["PROVIDER_TYPE_DESC"] == "PRACTITIONER - INTERNAL MEDICINE"
+            for item in data["Results"]
+            if item["GroupName"] == "Active Safety System"
         ]
 
         return jsonify(filtered), 200  # Flask will set Content‑Type: application/json
@@ -55,7 +52,7 @@ def create_item():
       • Handling non‑200 responses.
     """
     payload = request.get_json() or {}
-    url = "https://data.cms.gov/data-api/v1/dataset/7171ef6c-a2cf-43d4-b8ab-774b0de9b90a/data"
+    url = "https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleVariableList?format=json"
 
     try:
         resp = requests.post(url, json=payload, timeout=5)
