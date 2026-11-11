@@ -2,6 +2,7 @@
 
 INFO U762 Interoperability · Module 4, Assignment 1 · Llewellyn VanDelinder
 
-<!-- 100 to 200 words, in "I" sentences ("I learned...", "It surprised me when...").
+I learned about the difference when data is stored in a dictionary and looping, and the pain of not realizing
+I was in the post section not the get section - and wondering why it didn't make sense.<!-- 100 to 200 words, in "I" sentences ("I learned...", "It surprised me when...").
 Cover: the steps in broad terms, what surprised you, how your code evolved,
 and one concept you understand better or want to learn next. -->
